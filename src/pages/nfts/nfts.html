@@ -1,0 +1,59 @@
+<div dr-if="!this.user?.use" class="h-full flex flex-col justify-center items-center">
+    <h1 class="mt-3 text-3xl font-extrabold tracking-tight text-slate-900">😫</h1>
+    <h1 class="mt-3 text-2xl font-extrabold tracking-tight text-slate-900">로그인 지갑인증이 필요합니다</h1>
+</div>
+
+<div dr-if="this.user?.use" class="h-full flex flex-col items-center">
+<!--    <div class="self-start mb-4">-->
+<!--        <price-status></price-status>-->
+<!--    </div>-->
+    <img class="w-20 h-20" src="https://cdn-icons-png.flaticon.com/512/5915/5915880.png">
+    <div class="p-2 items-end text-indigo-100 flex justify-end w-full" role="alert">
+        <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">보유 탄소 포인트: ${this.allPoint}$</span>
+    </div>
+    <div dr-if="this.nfts?.length" class="w-full max-w-lg">
+        <div dr-for-of="this.nfts" class="flex mb-4">
+            <div class="basis-1/12 ml-4">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                    선택
+                </label>
+                <input dr-event-change="this.itemChange(#it#.uuid, $element.checked)" class="mr-2 leading-tight w-10 h-10" type="checkbox">
+            </div>
+            <div class="basis-3/12 ml-4">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                    포인트
+                </label>
+                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                       type="text" readonly value="${#it#.point}$">
+            </div>
+            <div class="basis-7/12 ml-4">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                    nft uuid
+                </label>
+                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                       type="text" readonly value="${#it#.uuid}$">
+            </div>
+            <div class="basis-2/12 ml-4">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                    상세
+                </label>
+                <button dr-event-click="this.search(#it#.uuid)">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                         stroke="currentColor" class="w-10 h-10">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M15.75 15.75l-2.489-2.489m0 0a3.375 3.375 0 10-4.773-4.773 3.375 3.375 0 004.774 4.774zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center border-b border-teal-500 py-2">
+        <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="address">
+        <div class="block uppercase tracking-wide text-gray-700 text-xs font-bold mr-2">주소</div>
+        <button dr-event-click="this.sendNft()" class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+            NFT 보내기
+        </button>
+    </div>
+
+</div>

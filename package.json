@@ -9,8 +9,8 @@
     "serve": "sbf serve --path ./dist --port 4500",
     "serve:watch": "sbf serve --path ./dist --port 4500 --watch",
     "serve:proxy": "sbf serve --path ./dist --port 4500 --proxy http://localhost:8080",
-    "bundle": "rollup -c ",
-    "bundle:watch": "rollup -c -w "
+    "bundle": "cp -r environments/environment.dev.ts environments/environment.ts  && rollup -c ",
+    "bundle:watch": "cp -r environments/environment.dev.ts environments/environment.ts  && rollup -c -w "
   },
   "repository": {
     "type": "git",
@@ -71,6 +71,12 @@
   },
   "dependencies": {
     "rxjs": "^7.5.6",
-    "simple-boot-front": "^1.0.112"
-  }
+    "simple-boot-front": "^1.0.114"
+  },
+  "workspaces": [
+    "dummy/server",
+    "libs/dom-render/dist",
+    "libs/simple-boot-front/dist",
+    "libs/simple-boot-core/dist"
+  ]
 }

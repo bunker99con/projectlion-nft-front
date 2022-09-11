@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "ts-node src/index.ts",
+    "serve:watch": "ts-node-dev --respawn --transpile-only src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bunker99con/projectlion-nft-front.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bunker99con/projectlion-nft-front/issues"
+  },
+  "homepage": "https://github.com/bunker99con/projectlion-nft-front#readme",
+  "dependencies": {
+    "simple-boot-http-server": "^1.0.8",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0"
+  }
+}

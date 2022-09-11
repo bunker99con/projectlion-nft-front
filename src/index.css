@@ -1,5 +1,15 @@
-header, footer, main {
-    border: #333333 1px solid;
-    padding: 20px;
-    margin: 20px;
+/*header, footer, main {*/
+/*    border: #333333 1px solid;*/
+/*    padding: 20px;*/
+/*    margin: 20px;*/
+/*}*/
+
+/*::-webkit-scrollbar {*/
+/*    display: none;*/
+/*}*/
+
+body {
+    overflow-y: hidden;
+    /*overflow-y: scroll;*/
+    /*scrollbar-width: */
 }

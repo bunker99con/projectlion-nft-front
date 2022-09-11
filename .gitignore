@@ -353,5 +353,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
+./libs
 # End of https://www.toptal.com/developers/gitignore/api/node,macos,windows,intellij+all,eclipse
+/environments/environment.ts

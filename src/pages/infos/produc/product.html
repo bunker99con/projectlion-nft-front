@@ -1,0 +1,32 @@
+<div class="h-full flex flex-col justify-center items-center">
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <img class="w-full" src="${this.data?.img}$" alt="Sunset in the mountains">
+        <div class="px-6 py-4">
+            <div class="font-bold text-xl mb-2">${this.data?.name}$</div>
+            <p class="text-gray-700 text-base">
+               포인트: ${this.data?.point}$
+            </p>
+            <p class="text-gray-700 text-base">
+               제조사: ${this.data?.company}$
+            </p>
+            <p class="text-gray-700 text-base">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+            </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+            <span dr-for-of="this.data?.tags" class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#${#it#}$</span>
+        </div>
+    </div>
+
+    <form dr-if='this.data' dr-form="this.form" class="w-full max-w-sm">
+        <div class="flex items-center border-b border-teal-500 py-2">
+            point: <input name="point" class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" readonly type="text" placeholder="Point"  dr-value="this.data?.point">
+            <button dr-event-click="this.submit(); $event.preventDefault();" class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+                적립하기
+            </button>
+<!--            <button class="flex-shrink-0 border-transparent border-4 text-teal-500 hover:text-teal-800 text-sm py-1 px-2 rounded" type="button">-->
+<!--                Cancel-->
+<!--            </button>-->
+        </div>
+    </form>
+</div>
