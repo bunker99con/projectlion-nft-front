@@ -19,6 +19,7 @@ import {Subscription} from 'rxjs';
 import {DomRender} from 'dom-render';
 import {DomRenderFinalProxy} from 'dom-render/types/Types';
 import {AlertService} from '../../../services/alerts/AlertService';
+import {Product as ProductType} from '../../../../domains/Types';
 @Sim
 @Component({
     template,
@@ -29,7 +30,7 @@ export class Product implements OnInitRender, OnCreateRender, OnProxyDomRender, 
       point = new NotEmptyValidator()
     };
     name = "infos";
-    private data: Product | undefined;
+    private data: ProductType | undefined;
     private userSubscription?: Subscription;
     private user?: UserInfo;
 
@@ -38,7 +39,7 @@ export class Product implements OnInitRender, OnCreateRender, OnProxyDomRender, 
 
     async onCreateRender(...param: any[]) {
         console.log('Infos onCreateRender', param);
-        this.data = await this.apiService.get<Product>({url: `/infos/${this.routeManager.activeRouterModule?.pathData?.qr}`, disabledSuccessAlert: true});
+        this.data = await this.apiService.get<ProductType>({url: `/infos/${this.routeManager.activeRouterModule?.pathData?.qr}`, disabledSuccessAlert: true});
     }
 
     onInitRender(...param: any[]): void {
@@ -47,12 +48,13 @@ export class Product implements OnInitRender, OnCreateRender, OnProxyDomRender, 
         });
     }
 
-    submit() {
+    async submit() {
         this.form.allSyncValue();
-        console.log('-------', this.form.valid(), this.user?.use)
+        // console.log('-------', this.form.valid(), this.user?.use)
         if (this.form.valid()) {
             if (this.user?.use) {
-
+               await this.apiService.post<void>({url:`/auths/${this.user.wallet?.address}/point`, data: this.data?.uuid, desc: '포인트 적립'});
+                this.navigation.go('/points');
             } else {
                 this.alertService.danger('로그인이 필요합니다.(지갑인증)').show();
             }

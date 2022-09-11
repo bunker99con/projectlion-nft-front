@@ -63,6 +63,14 @@ export class AppRouter {
 
 
 
+    @Route({path: '/auths/{address}/point'}) @OPTIONS()
+    authPointOption() {
+    }
+    @Route({path: '/auths/{address}/point'}) @POST({res: {contentType: Mimes.ApplicationJson}})
+    authPoint(rr: RequestResponse, header: ReqHeader, routerModule: RouterModule, @Inject({situationType: UrlMappingSituationType.REQ_JSON_BODY}) body: string[]) {
+        return {a:'1'}
+    }
+
     @Route({path: '/auths/{address}/nfts'}) @OPTIONS()
     authNftMakeOption() {
     }
