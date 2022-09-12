@@ -24,7 +24,7 @@ Co2 NFT Market Place (탄소 포인트, NFT)
 - 오프라인 구매 시 탄소 포인트 자동 적립 (모바일 영수증) 
 
 # 시장성
-- 기후 위기에 대한 대응은 안 할 수 없고 멈출 수 없는 시장
+- 기후 위기에 대한 대응은 안 할 수 없고 멈출 수 없는 시장  
 - 물품 만드는 것부터 물품 구매하는 거까지 현 시스템에서 큰 변경 없이 적용 가능하며 자연스러운 베네핏 시스템 (적응,적용) 정착성 높음 
 ------
 ### 백엔드
@@ -38,11 +38,12 @@ Co2 NFT Market Place (탄소 포인트, NFT)
   - 탄소배출권 NFT 발행 시 사용자 포인트 차감
   - 탄소배출권 NFT 내역 저장
   - 탄소배출권 NFT 불러오기
+  - smart contract (solidity)
 - github
   - https://github.com/bunker99con/projectlion-nft-server
 
 ### 프론트엔드
-- 참여자: 김현]
+- 참여자: 김현하
 - 스펙
   - nodeJs, simple-boot-front, tailwind
 - 기능
