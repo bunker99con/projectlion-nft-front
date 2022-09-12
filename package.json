@@ -7,7 +7,7 @@
     "start": "rollup -c && sbf serve --path ./dist --port 4500",
     "start:watch": "npm run bundle:watch & npm run serve:watch",
     "serve": "sbf serve --path ./dist --port 4500",
-    "serve:watch": "sbf serve --path ./dist --port 4500 --watch",
+    "serve:watch": "sbf serve --host 0.0.0.0 --path ./dist --port 4500 --watch",
     "serve:proxy": "sbf serve --path ./dist --port 4500 --proxy http://localhost:8080",
     "bundle": "cp -r environments/environment.dev.ts environments/environment.ts  && rollup -c ",
     "bundle:watch": "cp -r environments/environment.dev.ts environments/environment.ts  && rollup -c -w "

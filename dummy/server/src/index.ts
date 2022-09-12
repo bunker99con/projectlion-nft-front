@@ -145,9 +145,13 @@ const httpServerOption = new HttpServerOption({
     requestEndPoints: [CrossRequestEndPoint],
     // errorEndPoints: [CrossRequestEndPoint],
     listen: {
+        hostname: '0.0.0.0',
         listeningListener: (server, httpServer) => {
             console.log('server on', httpServer.address());
         }
+    },
+
+    serverOption: {
     }
 });
 const app = new SimpleBootHttpServer(AppRouter, httpServerOption);
